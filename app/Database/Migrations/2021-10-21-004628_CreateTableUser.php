@@ -18,8 +18,7 @@ class CreateTableUser extends Migration
             ],
             'street_id' => [
                 'type' => 'INT',
-                'unsigned' => true,
-                'NULL' => false
+                'NULL' => true
             ],
             'user_type'      => [
                 'type'           => 'ENUM',
@@ -39,12 +38,13 @@ class CreateTableUser extends Migration
             'cpf'      => [
                 'type'           => 'VARCHAR',
                 'constraint'     => 14,
-                'NULL' => false
+                'NULL' => true
             ],         
             'email'       => [
                 'type'       => 'VARCHAR',
                 'constraint' => 100,
-                'NULL' => false
+                'NULL' => false,
+                'unique' => true
             ],
             'password' => [
                 'type' => 'VARCHAR',
@@ -70,7 +70,6 @@ class CreateTableUser extends Migration
             
         ]);
         $this->forge->addKey('user_id', true);
-        $this->forge->addForeignKey('street_id','street','street_id','CASCADE','CASCADE');
         $this->forge->createTable('user');
         $this->db->enableForeignKeyChecks();
     }

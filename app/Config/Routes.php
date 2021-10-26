@@ -33,7 +33,9 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
-$routes->post('login/entrar', 'Login::enter', ['as' => 'login.entrar']);
+$routes->post('login/enter', 'Login::enter', ['as' => 'login.enter']);
+
+$routes->post('preconfig/store', 'Preconfig::store', ['as' => 'preconfig.store']);
 
 /*
  * --------------------------------------------------------------------
